@@ -1,0 +1,19 @@
+%%{init: {"theme": "base", "flowchart": {"wrappingWidth": 400, "nodeSpacing": 30, "rankSpacing": 45, "padding": 12}, "themeVariables": {"fontFamily": "Arial", "fontSize": "22px", "primaryColor": "#E8EEF1", "primaryBorderColor": "#1F3A4D", "primaryTextColor": "#1F3A4D", "lineColor": "#5B7083"}}}%%
+flowchart LR
+    A["386 mil anúncios<br/>InfoJobs"] --> B["Modelo de linguagem lê<br/>e extrai habilidades"]
+    B --> D["Dicionário de habilidades<br/>termo → grupo"]
+    A --> E["Dicionário de títulos<br/>título → CBO → área e nível"]
+    D --> G["Base classificada"]
+    E --> G
+    H["Anotação humana<br/>500 anúncios × 2"] --> I{"Concorda com<br/>as pessoas?"}
+    G --> I
+    I -- "sim" --> J["Instrumento congelado<br/>roda sem o modelo"]
+    I -- "não" --> K["Revisar<br/>dicionários"]
+    K --> D
+
+    classDef llm fill:#E09F3E,stroke:#9C6417,color:#1F1F1F
+    classDef humano fill:#1F3A4D,stroke:#1F3A4D,color:#FFFFFF
+    classDef fim fill:#2E7D5B,stroke:#1E5A40,color:#FFFFFF
+    class B llm
+    class H humano
+    class J fim

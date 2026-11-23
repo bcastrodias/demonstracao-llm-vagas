@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resposta do modelo para um anúncio de vaga",
+  "description": "Formato que o modelo deve devolver para cada anúncio. Uma resposta fora deste formato é tratada como erro e a chamada é repetida.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["vaga_ti", "justificativa_ti", "skills", "temas"],
+  "properties": {
+    "vaga_ti": {
+      "description": "Julgamento da FUNÇÃO PRINCIPAL da vaga. 'ti': a pessoa constrói, opera, sustenta, analisa ou protege sistemas, software, dados, redes ou infraestrutura. 'telecom_operacional': instalador ou técnico de campo de telecomunicações. 'nao': todas as outras, inclusive quem só usa ferramentas digitais no trabalho.",
+      "type": "string",
+      "enum": ["ti", "telecom_operacional", "nao"]
+    },
+    "justificativa_ti": {
+      "description": "Motivo do julgamento, em até 12 palavras. Serve para auditoria humana; não entra em nenhuma conta.",
+      "type": "string"
+    },
+    "skills": {
+      "description": "Habilidades específicas e NOMEADAS citadas no anúncio (linguagens, ferramentas, sistemas, plataformas, métodos), uma por item, copiadas do texto. Lista vazia se não houver.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "temas": {
+      "description": "Exigências técnicas citadas SEM nome de ferramenta, em frases de 2 a 5 palavras (ex.: 'suporte a usuários'). Lista vazia se não houver.",
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

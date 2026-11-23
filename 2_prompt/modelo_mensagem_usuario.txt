@@ -1,0 +1,14 @@
+Extraia as habilidades da vaga.
+
+=== VAGA ===
+Área (InfoJobs): {area_infojobs}
+Título: {title}
+Empresa: {company}
+Local: {location}
+Modelo de trabalho: {work_model}
+Experiência: {experience}
+Escolaridade: {education}
+Salário: {salary}
+Contratação: {employment_type}
+Descrição: {description}
+=== FIM ===
